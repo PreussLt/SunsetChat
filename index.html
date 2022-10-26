@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>W3.CSS Template</title>
+    <title>SunsetChat</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./src/css/sendBtn.css">
@@ -35,7 +35,7 @@
         <i class="fa fa-user w3-xxlarge"></i>
         <p>ABOUT</p>
     </a>
-    <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+    <a href="#room1" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
         <i class="fa fa-envelope w3-xxlarge"></i>
         <p>Room 1</p>
     </a>
@@ -50,8 +50,8 @@
     <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
         <a href="#" class="w3-bar-item w3-button" style="width:25% !important">HOME</a>
         <a href="#about" class="w3-bar-item w3-button" style="width:25% !important">ABOUT</a>
-        <a href="#contact" class="w3-bar-item w3-button" style="width:25% !important">Room 1</a>
-        <a href="#contact" class="w3-bar-item w3-button" style="width:25% !important">Room 2</a>
+        <a href="#room1" class="w3-bar-item w3-button" style="width:25% !important">Room 1</a>
+        <a href="#room1" class="w3-bar-item w3-button" style="width:25% !important">Room 2</a>
         <!-- Todo Hier mit JS auto vervollständigen -->
     </div>
 </div>
@@ -119,29 +119,35 @@
     </div>
 
     <!-- Contact Section -->
-    <div class="w3-padding-64 w3-content w3-text-grey" id="contact">
+    <script>empfangeDaten(1);</script>
+    <div class="w3-padding-64 w3-content w3-text-grey" id="room1">
         <div class="chat-box">
             <h1>Room 1</h1>
             <hr>
-            <div class="chat-msgbox">
+            <div class="chat-msgbox" id="room1_box">
+                <!--
                 <div class="chat-om">
                     Some text about me. Some text about me. I am lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                 </div>
                 <h4>Nilsinger:</h4>
                 <div class="chat-fm"> Deine Message</div>
                 <div class="chat-fm"> Deine Message</div>
+                -->
             </div>
             <div class="chat-sendmsg">
-                <input class="c-checkbox" type="checkbox" id="checkbox" onclick="reloadCSS()">
+                <!--
+                <input class="c-checkbox" type="checkbox" id="c" onclick="setReload()">
                 <div class="c-formContainer">
                     <form class="c-form" action="">
-                        <input class="c-form__input" placeholder="Neue Nachricht" type="text" required>
+                        <input class="c-form__input" placeholder="Neue Nachricht" type="text" id="text_input" required>
                         <label class="c-form__buttonLabel" for="checkbox">
                             <button class="c-form__button" type="button" onclick="reloadCSS()">Senden</button>
                         </label>
                         <label class="c-form__toggle" for="checkbox" data-title="Nachricht Schreiben"></label>
                     </form>
                 </div>
+                -->
+                <iframe src="./src/html/button.html" width="100%" height="100%"></iframe>
             </div>
         </div>
         <!-- End Contact Section -->

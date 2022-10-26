@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Button Send</title>
+    <link rel="stylesheet" href="../css/sendBtn.css">
+    <style>
+        #input{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 2.25em;;
+        }
+
+    </style>
+    <script src="../js/main.js"></script>
+</head>
+<body>
+<div id="input">
+<input class="c-checkbox" type="checkbox" id="checkbox" onclick="setReload()">
+<div class="c-formContainer">
+    <form class="c-form" action="">
+        <input class="c-form__input" placeholder="Neue Nachricht" type="text" id="text_input" required>
+        <label class="c-form__buttonLabel" for="checkbox">
+            <button class="c-form__button" type="button" onclick="setReload()">Senden</button>
+        </label>
+        <label class="c-form__toggle" for="checkbox" data-title="Nachricht Schreiben"></label>
+    </form>
+</div>
+</div>
+</body>
+</html>
