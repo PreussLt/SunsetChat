@@ -1,18 +1,17 @@
-const socket = new WebSocket("wss://chat.web2021.dhbw.scytec.de/ws");
 
 function setReload(){
-    document.getElementById("checkbox").setAttribute("onclick","reloadCSS()");
+    document.getElementById("checkbox").setAttribute("onclick","reloadCSS(getCookie('user'))");
 
 }
-function  reloadCSS() {
+function  reloadCSS(user) {
     var text =document.getElementById('text_input').value;
-    sendeDaten(text);
+    sendeDaten(text,user);
     alert("Nachricht wurde gesendet: "+text);
     document.location.reload();
 }
 
-async function empfangeDaten(roomId) {
-    const user = "x";
+async function empfangeDaten(roomId, userName) {
+    const user = userName;
     const link = "https://chat.web2021.dhbw.scytec.de/room/"+roomId+"/messages";
     let myObject =  await fetch(link);
     let myText =  await myObject.text();
@@ -43,13 +42,13 @@ async function empfangeDaten(roomId) {
     }
 
 }
-async function sendeDaten(data){
+async function sendeDaten(data,user){
 
     let myObject =  await fetch("https://chat.web2021.dhbw.scytec.de/room/1/messages",
         {
             method: 'POST',
             body: JSON.stringify({
-                "sender": "Kanalratte99",
+                "sender": user,
                 "text": data,
                 "data": "optionale Daten",
             }),
@@ -63,6 +62,26 @@ async function sendeDaten(data){
     //let myObject =  await fetch("https://chat.web2021.dhbw.scytec.de/room/2/messages");
     let myText =  await myObject.text();
 
+}
+
+function login(a){
+    if (a==""){
+        alert("Kein Logon");
+        return "anonymus";
+    }else {
+        return a;
+    }
+}
+
+function scroll_to_end(frame) {
+    var frame = window.frames.DP_Log_frame;
+    var doc   = frame.document;
+    var node  = doc.getElementsByTagName('body')[0].lastChild;
+
+    var y = parseInt(node.offsetTop, 10);
+
+    frame.scrollTo(0, y);
+    alert("f")
 }
 
 

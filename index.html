@@ -20,6 +20,8 @@
         @media only screen and (max-width: 600px) {#main {margin-left: 0}}
     </style>
     <script src="src/js/main.js"></script>
+    <script src="src/js/cookie.js"></script>
+    <script>userSetzen();</script>
 </head>
 <body class="w3-black">
 
@@ -119,13 +121,17 @@
     </div>
 
     <!-- Contact Section -->
-    <script>empfangeDaten(1);</script>
+
     <div class="w3-padding-64 w3-content w3-text-grey" id="room1">
+
         <div class="chat-box">
+            <iframe id="room1IF" src="./src/html/room1.html#end" width="100%" height="500px" onload="scroll_to_end("room1IF")"></iframe>
+            <!--
+            <script>empfangeDaten(1,login(getCookie("user")));</script>
             <h1>Room 1</h1>
             <hr>
             <div class="chat-msgbox" id="room1_box">
-                <!--
+
                 <div class="chat-om">
                     Some text about me. Some text about me. I am lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                 </div>
@@ -133,6 +139,7 @@
                 <div class="chat-fm"> Deine Message</div>
                 <div class="chat-fm"> Deine Message</div>
                 -->
+
             </div>
             <div class="chat-sendmsg">
                 <!--

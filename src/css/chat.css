@@ -17,6 +17,12 @@
     border: none;
     text-align: center;
 }
+.chat-box iframe{
+    margin: 0;
+    padding: 0;
+    border: none;
+    text-align: center;
+}
 
 .chat-msgbox div{
     margin-bottom: 5px;
