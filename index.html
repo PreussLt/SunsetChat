@@ -22,6 +22,47 @@
     <script src="src/js/main.js"></script>
     <script src="src/js/cookie.js"></script>
     <script>userSetzen();</script>
+    <script type="text/javascript">
+        let iframe;
+        window.onload = function()
+        {
+            try {
+                iframe = document.getElementById("rommxif");
+                window.setInterval("RefreshIFrame()", 10000); // 60000 ms = 60 Sek.
+            }catch (err){
+                alert("Fehler "+err);
+            }
+
+        }
+        function RefreshIFrame()
+        {
+            checkreload(1);
+
+            if (getCookie("restBtn")=="true"){
+                document.cookie = "restBtn=false; path=/";
+                document.getElementById("bnt_room1").contentDocument.location.reload(true);
+            }
+            if (getCookie("rRoom1")==="true"){
+                document.cookie = "rRoom1=false; path=/";
+                document.getElementById("rommxif").contentDocument.location.reload(true);
+            }
+        }
+
+        async function checkreload(roomId){
+            try {
+                const link = "https://chat.web2021.dhbw.scytec.de/room/"+roomId+"/messages";
+                let myObject =  await fetch(link);
+                let myText =  await myObject.text();
+                //document.getElementById("demo").innerHTML = myText;
+                const myArray = myText.split("},{");
+                if (getCookie("lm")!=splitArray(myArray)[0][0]) {
+                    document.cookie = "rRoom"+roomId+"=true; path=/";
+                }
+            }catch (err){
+                console.log("Fehler im Reload: "+err);
+            }
+        }
+    </script>
 </head>
 <body class="w3-black">
 
@@ -41,9 +82,9 @@
         <i class="fa fa-envelope w3-xxlarge"></i>
         <p>Room 1</p>
     </a>
-    <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+    <a href="#pm" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
         <i class="fa fa-envelope w3-xxlarge"></i>
-        <p>Room 2</p>
+        <p>Private Message</p>
     </a>
 </nav>
 
@@ -53,7 +94,7 @@
         <a href="#" class="w3-bar-item w3-button" style="width:25% !important">HOME</a>
         <a href="#about" class="w3-bar-item w3-button" style="width:25% !important">ABOUT</a>
         <a href="#room1" class="w3-bar-item w3-button" style="width:25% !important">Room 1</a>
-        <a href="#room1" class="w3-bar-item w3-button" style="width:25% !important">Room 2</a>
+        <a href="#pm" class="w3-bar-item w3-button" style="width:25% !important">PM</a>
         <!-- Todo Hier mit JS auto vervollständigen -->
     </div>
 </div>
@@ -125,7 +166,7 @@
     <div class="w3-padding-64 w3-content w3-text-grey" id="room1">
 
         <div class="chat-box">
-            <iframe id="room1IF" src="./src/html/room1.html#end" width="100%" height="500px" onload="scroll_to_end("room1IF")"></iframe>
+            <iframe name="rommxif" id="rommxif" src="./src/html/room1.html#end"   width="100%" height="500px">.</iframe>
             <!--
             <script>empfangeDaten(1,login(getCookie("user")));</script>
             <h1>Room 1</h1>
@@ -154,7 +195,7 @@
                     </form>
                 </div>
                 -->
-                <iframe src="./src/html/button.html" width="100%" height="100%"></iframe>
+                <iframe id="bnt_room1" src="./src/html/button.html" width="100%" height="100%"></iframe>
             </div>
         </div>
         <!-- End Contact Section -->
