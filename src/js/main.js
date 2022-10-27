@@ -59,11 +59,12 @@ async function empfangeDaten(roomId, userName) {
         }else {
             if (y==0){
                 document.getElementById("room1_box").innerHTML += "<h4>" + myArray[y][2] + ":</h4>";
+                document.getElementById("room1_box").innerHTML += "<div id='firstMsg' class=\"chat-fm\">"+myArray[y][3]+"</div>";
             }else if(myArray[y-1][2]!=myArray[y][2]){
                 document.getElementById("room1_box").innerHTML += "<h4>" + myArray[y][2] + ":</h4>";
+                document.getElementById("room1_box").innerHTML += "<div class=\"chat-fm\">"+myArray[y][3]+"</div>";
             }
 
-            document.getElementById("room1_box").innerHTML += "<div class=\"chat-fm\">"+myArray[y][3]+"</div>";
         }
     }
 
@@ -77,7 +78,7 @@ async function sendeDaten(data,user){
             body: JSON.stringify({
                 "sender": user,
                 "text": data,
-                "data": "optionale Daten",
+                "data": "kyle",
             }),
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',

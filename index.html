@@ -37,6 +37,7 @@
         function RefreshIFrame()
         {
             checkreload(1);
+            checkreload(42);
 
             if (getCookie("restBtn")=="true"){
                 document.cookie = "restBtn=false; path=/";
@@ -45,6 +46,10 @@
             if (getCookie("rRoom1")==="true"){
                 document.cookie = "rRoom1=false; path=/";
                 document.getElementById("rommxif").contentDocument.location.reload(true);
+            }
+            if (getCookie("rRoomPM")==="true"){
+                document.cookie = "rRoomPM=false; path=/";
+                document.getElementById("rommPM").contentDocument.location.reload(true);
             }
         }
 
@@ -199,6 +204,20 @@
             </div>
         </div>
         <!-- End Contact Section -->
+    </div>
+
+    <div class="w3-padding-64 w3-content w3-text-grey" id="pm">
+
+        <div class="chat-box">
+            <iframe name="rommPM" id="rommPM" src="./src/html/pm_room.html"   width="100%" height="500px">.</iframe>
+
+        </div>
+        <div class="chat-sendmsg">
+
+            <iframe id="bnt_pm" src="./src/html/pm_btn.html" width="100%" height="100%"></iframe>
+        </div>
+    </div>
+    <!-- End Private MSG -->
     </div>
 
     <!-- Footer -->
