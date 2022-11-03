@@ -36,19 +36,25 @@
         }
         function RefreshIFrame()
         {
+            //TODO Hier auf Array wechseln um Hardcode zu verhindern
             checkreload(1);
             checkreload(42);
 
-            if (getCookie("restBtn")=="true"){
-                document.cookie = "restBtn=false; path=/";
+            if (getCookie("restBtn1")=="true"){
+                document.cookie = "restBtn1=false; path=/";
                 document.getElementById("bnt_room1").contentDocument.location.reload(true);
             }
+            if (getCookie("restBtn42")=="true"){
+                document.cookie = "restBtn42=false; path=/";
+                document.getElementById("bnt_pm").contentDocument.location.reload(true);
+            }
+
             if (getCookie("rRoom1")==="true"){
                 document.cookie = "rRoom1=false; path=/";
                 document.getElementById("rommxif").contentDocument.location.reload(true);
             }
-            if (getCookie("rRoomPM")==="true"){
-                document.cookie = "rRoomPM=false; path=/";
+            if (getCookie("rRoom42")==="true"){
+                document.cookie = "rRoom42=false; path=/";
                 document.getElementById("rommPM").contentDocument.location.reload(true);
             }
         }
@@ -203,7 +209,7 @@
                 <iframe id="bnt_room1" src="./src/html/button.html" width="100%" height="100%"></iframe>
             </div>
         </div>
-        <!-- End Contact Section -->
+        <!-- End Room 1-->
     </div>
 
     <div class="w3-padding-64 w3-content w3-text-grey" id="pm">

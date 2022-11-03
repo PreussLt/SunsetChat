@@ -2,9 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Private Message Buttopm</title>
+    <link rel="stylesheet" href="../css/sendBtn.css">
+    <style>
+        #input{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 2.25em;;
+        }
+
+    </style>
+    <script src="../js/main.js"></script>
+    <script src="../js/cookie.js"></script>
 </head>
 <body>
-
+<div id="input">
+    <input class="c-checkbox" type="checkbox" id="checkbox" onclick="setReload(42)">
+    <div class="c-formContainer">
+        <form class="c-form" action="">
+            <input class="c-form__input" placeholder="Neue Nachricht" type="text" id="text_input" required>
+            <label class="c-form__buttonLabel" for="checkbox">
+                <button class="c-form__button" type="button" onclick="setReload(42)">Senden</button>
+            </label>
+            <label class="c-form__toggle" for="checkbox" data-title="Nachricht Schreiben"></label>
+        </form>
+    </div>
+</div>
 </body>
 </html>

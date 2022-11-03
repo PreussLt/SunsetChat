@@ -22,8 +22,9 @@ async function empfangePM(roomId, userName) {
     const rArray = myArray.reverse();
     document.cookie = "lm="+rArray[0][0]+"; path=/";
     for (let y =0; y< rArray.length;y++){
-        if (myArray[0][4]==user){
-        if (myArray[y][2]==user){
+        if (myArray[y][4]==user || myArray[y][2]==user && myArray[y][4]!="RickAsley42"){
+        if (myArray[y][2]===user){
+            document.getElementById("room1_box").innerHTML += "<h5> Nachricht an: " + myArray[y][4] + ":</h5>";
             document.getElementById("room1_box").innerHTML += "<div class=\"chat-om\">"+myArray[y][3]+"</div>";
         }else {
             if (y==0){
