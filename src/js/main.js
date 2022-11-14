@@ -26,11 +26,8 @@ async function empfangeDaten(roomId, userName) {
     const user = userName;
     const link = "https://chat.web2021.dhbw.scytec.de/room/"+roomId+"/messages";
     let myObject =  await fetch(link);
-    let myText ="";
-    myText =  await myObject.text()
-        .then(ausgabe(myText));
+    let myText =  await myObject.text();
     //document.getElementById("demo").innerHTML = myText;
-    /*
     const myArray = myText.split("},{");
     for (let i=0; i<myArray.length;i++){
         myArray[i] = myArray[i].replaceAll("{","");
@@ -40,43 +37,30 @@ async function empfangeDaten(roomId, userName) {
         myArray[i] = myArray[i].split(",");
         for (let y =0;y<myArray[i].length;y++){
             let arr = myArray[i][y].split(":");
-             myArray[i][y] = arr[1];
+            myArray[i][y] = arr[1];
         }
-
-
-        if (myArray[i][2]==user){
-            document.getElementById("room1_box").innerHTML += "<div class=\"chat-om\">"+myArray[i][3]+"</div>";
-        }else {
-            if (i==0){
-                document.getElementById("room1_box").innerHTML += "<h4>" + myArray[i][2] + ":</h4>";
-            }else if(myArray[i-1][2]!=myArray[i][2]){
-                document.getElementById("room1_box").innerHTML += "<h4>" + myArray[i][2] + ":</h4>";
-            }
-
-            document.getElementById("room1_box").innerHTML += "<div class=\"chat-fm\">"+myArray[i][3]+"</div>";
-        }
-
 
     }
 
    const rArray = myArray.reverse();
     document.cookie = "lm="+rArray[0][0]+"; path=/";
+    if (getCookie("xroom")===roomId) roomId="X";
     for (let y =0; y< rArray.length;y++){
         if (myArray[y][2]==user){
-            document.getElementById("room1_box").innerHTML += "<div class=\"chat-om\">"+myArray[y][3]+"</div>";
+            document.getElementById("room"+roomId+"_box").innerHTML += "<div class=\"chat-om\">"+myArray[y][3]+"</div>";
         }else {
             if (y==0){
-                document.getElementById("room1_box").innerHTML += "<h4>" + myArray[y][2] + ":</h4>";
-                document.getElementById("room1_box").innerHTML += "<div id='firstMsg' class=\"chat-fm\">"+myArray[y][3]+"</div>";
+                document.getElementById("room"+roomId+"_box").innerHTML += "<h4>" + myArray[y][2] + ":</h4>";
+                document.getElementById("room"+roomId+"_box").innerHTML += "<div id='firstMsg' class=\"chat-fm\">"+myArray[y][3]+"</div>";
             }else if(myArray[y-1][2]!=myArray[y][2]){
-                document.getElementById("room1_box").innerHTML += "<h4>" + myArray[y][2] + ":</h4>";
-                document.getElementById("room1_box").innerHTML += "<div class=\"chat-fm\">"+myArray[y][3]+"</div>";
+                document.getElementById("room"+roomId+"_box").innerHTML += "<h4>" + myArray[y][2] + ":</h4>";
+                document.getElementById("room"+roomId+"_box").innerHTML += "<div class=\"chat-fm\">"+myArray[y][3]+"</div>";
             }
 
         }
     }// Ende Text Ausgabe
 
-    */
+
 }
 function ausgabe(myText){
     const myArray = myText.split("},{");
@@ -127,6 +111,14 @@ function ausgabe(myText){
 
 }
 async function sendeDaten(data,user,ziel,roomID){
+    alert("Ff:"+roomID);
+    let diff;
+    if(data.length>15){
+       diff = data.length-15;
+    }else {
+        diff = 0;
+    }
+    data = data.substring(0,data.length-diff);
 
     let myObject =  await fetch("https://chat.web2021.dhbw.scytec.de/room/"+roomID+"/messages",
         {

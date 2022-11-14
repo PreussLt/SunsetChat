@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Private Message</title>
+  <link rel="stylesheet" href="../css/sendBtn.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/chat.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="../js/main.js"></script>
+  <script src="../js/pm.js"></script>
+  <script src="../js/cookie.js"></script>
+</head>
+<body>
+<script>document.cookie = "xroom="+prompt("Welcher Raum soll ausgewählt werden")+"; path=/";</script>
+<div class="chat-box">
+
+  <script>
+
+    empfangeDaten(getCookie("xroom"),login(getCookie("user")));
+  </script>
+  <h1>Raum <span id="ff"></span> <script>document.getElementById('ff').innerHTML =getCookie("xroom")</script></h1>
+  <hr>
+  <div class="chat-msgbox" id="roomX_box">
+    <!--
+    <div class="chat-om">
+        Some text about me. Some text about me. I am lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    </div>
+    <h4>Nilsinger:</h4>
+    <div class="chat-fm"> Deine Message</div>
+    <div class="chat-fm"> Deine Message</div>
+    -->
+
+  </div>
+  <a id="end"></a>
+</div>
+</body>
+</html>

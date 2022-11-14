@@ -48,6 +48,10 @@
                 document.cookie = "restBtn42=false; path=/";
                 document.getElementById("bnt_pm").contentDocument.location.reload(true);
             }
+            if (getCookie("restBtn"+getCookie("xroom"))=="true"){
+                document.cookie = "restBtn"+getCookie(xroom)+"=false; path=/";
+                document.getElementById("bnt_"+getCookie("xroom")).contentDocument.location.reload(true);
+            }
 
             if (getCookie("rRoom1")==="true"){
                 document.cookie = "rRoom1=false; path=/";
@@ -56,6 +60,10 @@
             if (getCookie("rRoom42")==="true"){
                 document.cookie = "rRoom42=false; path=/";
                 document.getElementById("rommPM").contentDocument.location.reload(true);
+            }
+            if (getCookie("rRoom"+getCookie("xroom"))==="true"){
+                document.cookie = "restBtn"+getCookie(xroom)+"=false; path=/";
+                document.getElementById("bnt_"+getCookie("xroom")).contentDocument.location.reload(true);
             }
         }
 
@@ -97,6 +105,10 @@
         <i class="fa fa-envelope w3-xxlarge"></i>
         <p>Private Message</p>
     </a>
+    <a href="#xRoom" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+        <i class="fa fa-envelope w3-xxlarge"></i>
+        <p>Room X</p>
+    </a>
 </nav>
 
 <!-- Navbar on small screens (Hidden on medium and large screens) -->
@@ -106,6 +118,7 @@
         <a href="#about" class="w3-bar-item w3-button" style="width:25% !important">ABOUT</a>
         <a href="#room1" class="w3-bar-item w3-button" style="width:25% !important">Room 1</a>
         <a href="#pm" class="w3-bar-item w3-button" style="width:25% !important">PM</a>
+        <a href="#xRoom" class="w3-bar-item w3-button" style="width:25% !important">PM</a>
         <!-- Todo Hier mit JS auto vervollständigen -->
     </div>
 </div>
@@ -123,9 +136,8 @@
     <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
         <h2 class="w3-text-light-grey">Über SunsetChat</h2>
         <hr style="width:200px" class="w3-opacity">
-        <p>Some text about me. Some text about me. I am lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-            ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur
-            adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        <p>
+            SunsetChat, die Chatplatform in der alles in 15 Zeichen gesagt wird.
         </p>
 
 
@@ -212,6 +224,7 @@
         <!-- End Room 1-->
     </div>
 
+    <!-- Private MSG -->
     <div class="w3-padding-64 w3-content w3-text-grey" id="pm">
 
         <div class="chat-box">
@@ -224,6 +237,20 @@
         </div>
     </div>
     <!-- End Private MSG -->
+
+    <!-- Add Extra Chat -->
+    <div class="w3-padding-64 w3-content w3-text-grey" id="xRoom">
+
+        <div class="chat-box">
+            <iframe name="rommX" id="rommX" src="./src/html/x_room.html"   width="100%" height="500px">.</iframe>
+
+        </div>
+        <div class="chat-sendmsg">
+
+            <iframe id="bnt_X" src="./src/html/x_btn.html" width="100%" height="100%"></iframe>
+        </div>
+    </div>
+    <!-- END Add Extra Chat -->
     </div>
 
     <!-- Footer -->
